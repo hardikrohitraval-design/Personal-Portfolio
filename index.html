@@ -1,602 +1,340 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hardik Raval | Creative Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hardik Raval — Small Steps. Big Dreams.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-:root {
-  --bg: #f8f7f2;
-  --paper: #fffefa;
-  --ink: #171717;
-  --line: #222;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Comic Neue', cursive;
-  overflow-x: hidden;
-  background-image: radial-gradient(#bbb 0.7px, transparent 0.7px);
-  background-size: 18px 18px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-header {
-  padding: 20px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px dashed var(--line);
-  background: var(--paper);
-}
-
-.logo {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 24px;
-}
-
-nav {
-  display: flex;
-  gap: 25px;
-}
-
-nav a {
-  font-size: 17px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline wavy;
-}
-
-.menu {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-section {
-  padding: 85px 9%;
-  scroll-margin-top: 30px;
-}
-
-.hero {
-  min-height: 85vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-}
-
-.tag {
-  font-family: 'Patrick Hand', cursive;
-  font-size: 22px;
-  display: inline-block;
-  border: 2px solid;
-  padding: 5px 15px;
-  transform: rotate(-2deg);
-  width: fit-content;
-  margin-bottom: 25px;
-}
-
-.hero h1 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: clamp(48px, 9vw, 100px);
-  line-height: 1.12;
-  max-width: 850px;
-}
-
-.hero h1 span {
-  text-decoration: underline wavy;
-}
-
-.hero p {
-  font-size: 22px;
-  margin-top: 25px;
-  max-width: 600px;
-  line-height: 1.7;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-block;
-  border: 2px solid var(--line);
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: bold;
-  background: var(--paper);
-  box-shadow: 4px 4px 0 var(--line);
-  transition: .2s;
-}
-
-.btn:hover {
-  transform: translate(3px, 3px);
-  box-shadow: 1px 1px 0 var(--line);
-}
-
-.doodle {
-  position: absolute;
-  right: 10%;
-  top: 23%;
-  font-size: 75px;
-  transform: rotate(15deg);
-}
-
-.heading {
-  font-family: 'Permanent Marker', cursive;
-  font-size: clamp(32px, 5vw, 48px);
-  margin-bottom: 35px;
-}
-
-.about-box {
-  background: var(--paper);
-  border: 2px solid var(--line);
-  padding: 35px;
-  box-shadow: 8px 8px 0 var(--line);
-  transform: rotate(-.4deg);
-}
-
-.about-box p {
-  font-size: 20px;
-  line-height: 1.9;
-  margin-bottom: 15px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: var(--paper);
-  border: 2px solid var(--line);
-  padding: 28px;
-  min-height: 180px;
-  box-shadow: 5px 5px 0 var(--line);
-  transition: .25s;
-}
-
-.card:hover {
-  transform: translateY(-7px) rotate(1deg);
-}
-
-.card .emoji {
-  font-size: 40px;
-}
-
-.card h3 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 23px;
-  margin: 15px 0 10px;
-}
-
-.card p {
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-.project {
-  background: var(--paper);
-  border: 2px solid var(--line);
-  padding: 25px;
-  box-shadow: 5px 5px 0 var(--line);
-}
-
-.project h3 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 23px;
-  margin: 15px 0;
-}
-
-.project p {
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-.project .number {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 35px;
-}
-
-.journey {
-  border-left: 3px dashed var(--line);
-  padding-left: 25px;
-}
-
-.journey p {
-  font-size: 20px;
-  line-height: 1.8;
-}
-
-.quote {
-  border: 3px solid var(--line);
-  background: var(--paper);
-  padding: 40px;
-  text-align: center;
-  transform: rotate(1deg);
-  box-shadow: 7px 7px 0 var(--line);
-}
-
-.quote h2 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: clamp(28px, 5vw, 45px);
-}
-
-.quote p {
-  font-size: 20px;
-  margin-top: 15px;
-}
-
-.contact-box {
-  background: var(--paper);
-  border: 2px solid var(--line);
-  padding: 35px;
-  text-align: center;
-  box-shadow: 6px 6px 0 var(--line);
-}
-
-footer {
-  border-top: 2px dashed var(--line);
-  padding: 25px;
-  text-align: center;
-  background: var(--paper);
-  font-size: 17px;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: .7s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media(max-width: 700px) {
-  nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: var(--paper);
-    padding: 25px;
-    flex-direction: column;
-    z-index: 10;
-    border-bottom: 2px solid;
-  }
-
-  nav.open {
-    display: flex;
-  }
-
-  .menu {
-    display: block;
-  }
-
-  .doodle {
-    right: 5%;
-    top: 10%;
-    font-size: 45px;
-  }
-
-  section {
-    padding: 65px 7%;
-  }
-
-  .about-box {
-    padding: 22px;
-  }
-}
+:root{--bg:#02030a;--bg2:#070a18;--tx:#e8f0ff;--mu:#8e9bbd;--c1:#00e5ff;--c2:#3b6bff;--c3:#a64dff;--glass:rgba(14,20,48,.55);--bd:rgba(110,150,255,.22);
+--g:linear-gradient(120deg,var(--c1),var(--c2),var(--c3),var(--c1));
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg:#eef2ff;--bg2:#e0e7ff;--tx:#0d1233;--mu:#4b5680;--c1:#0891b2;--c2:#2d4fe0;--c3:#7c2de0;--glass:rgba(255,255,255,.6);--bd:rgba(60,80,200,.25)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--tx);font-family:'Rajdhani',sans-serif;font-size:19px;line-height:1.55;overflow-x:hidden;cursor:none;transition:background .6s,color .6s}
+@media (hover:none){body{cursor:auto}.cur,.ring{display:none}}
+h1,h2,h3,.orb{font-family:'Orbitron',sans-serif}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(0,229,255,.16),rgba(166,77,255,.08) 40%,transparent 70%)}
+body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 1px,transparent 1px 4px)}
+.cur,.ring{position:fixed;top:0;left:0;z-index:999;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%)}
+.cur{width:8px;height:8px;background:var(--c1);box-shadow:0 0 14px 4px var(--c1)}
+.ring{width:38px;height:38px;border:1.5px solid var(--c1);transition:width .25s,height .25s,border-color .25s,background .25s}
+.ring.big{width:70px;height:70px;border-color:var(--c3);background:rgba(166,77,255,.1)}
+main,header,footer{position:relative;z-index:2}
+/* loader */
+#loader{position:fixed;inset:0;z-index:2000;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:opacity .8s,visibility .8s}
+#loader.done{opacity:0;visibility:hidden}
+.core{width:110px;height:110px;border-radius:50%;border:2px solid transparent;border-top-color:var(--c1);border-right-color:var(--c3);animation:spin 1s linear infinite;position:relative}
+.core::after{content:"";position:absolute;inset:18px;border-radius:50%;border:2px solid transparent;border-bottom-color:var(--c2);animation:spin 1.6s linear infinite reverse}
+.lt{font-family:'Orbitron';letter-spacing:.4em;font-size:.8rem;color:var(--c1)}
+.lbar{width:220px;height:3px;background:rgba(120,150,255,.2);border-radius:3px;overflow:hidden}
+.lbar i{display:block;height:100%;width:0;background:var(--g);box-shadow:0 0 12px var(--c1)}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* wipe */
+#wipe{position:fixed;inset:0;z-index:1500;background:var(--g);background-size:300% 300%;transform:translateY(101%);pointer-events:none}
+#wipe.go{animation:wipe .9s cubic-bezier(.77,0,.18,1)}
+@keyframes wipe{0%{transform:translateY(101%)}45%,55%{transform:translateY(0)}100%{transform:translateY(-101%)}}
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top,0px)) 5vw 14px;background:linear-gradient(var(--bg),transparent);backdrop-filter:blur(8px)}
+.logo{font-family:'Orbitron';font-weight:900;letter-spacing:.15em;background:var(--g);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite;text-decoration:none}
+nav{display:flex;gap:26px;align-items:center}
+nav a{color:var(--mu);text-decoration:none;font-weight:600;letter-spacing:.12em;font-size:.82rem;text-transform:uppercase;transition:.3s}
+nav a:hover{color:var(--c1);text-shadow:0 0 12px var(--c1)}
+#theme{width:40px;height:40px;border-radius:50%;border:1px solid var(--bd);background:var(--glass);color:var(--c1);font-size:1.1rem;cursor:pointer;backdrop-filter:blur(10px)}
+@media(max-width:760px){nav a{display:none}}
+@keyframes flow{to{background-position:300% 0}}
+section{padding:110px 6vw;max-width:1250px;margin:auto}
+.tag{font-family:'Orbitron';font-size:.72rem;letter-spacing:.45em;color:var(--c1);margin-bottom:12px;text-transform:uppercase}
+h2{font-size:clamp(1.7rem,4vw,2.8rem);margin-bottom:40px;font-weight:900}
+.grad{background:var(--g);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+.glass{background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--bd);border-radius:20px;position:relative;transition:transform .3s,box-shadow .4s,border-color .4s}
+.glass::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:var(--g);background-size:300%;animation:flow 5s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.0;transition:opacity .4s;pointer-events:none}
+.glass:hover::before{opacity:1}
+.glass:hover{box-shadow:0 0 40px rgba(0,229,255,.18),0 0 80px rgba(166,77,255,.12)}
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);filter:blur(8px);transition:1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none;filter:none}
+.ch{display:inline-block;opacity:0;transform:translateY(60%) rotateX(-80deg);animation:ch .8s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes ch{to{opacity:1;transform:none}}
+/* hero */
+#hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px;padding-top:120px}
+#hero h1{font-size:clamp(2rem,5.2vw,4.1rem);line-height:1.1;font-weight:900;margin-bottom:20px;perspective:600px}
+.sub{font-family:'Orbitron';letter-spacing:.28em;font-size:clamp(.68rem,1.4vw,.95rem);color:var(--c1);margin-bottom:22px;text-shadow:0 0 14px var(--c1)}
+.tagline{font-family:'Orbitron';font-size:clamp(1.1rem,2.6vw,1.8rem);font-weight:700;margin-bottom:34px}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:50px;font-family:'Orbitron';font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--tx);border:1px solid var(--c1);background:rgba(0,229,255,.06);overflow:hidden;transition:.4s;cursor:none}
+.btn::before{content:"";position:absolute;inset:0;background:var(--g);background-size:300%;opacity:0;transition:.4s;z-index:-1}
+.btn:hover{color:#fff;box-shadow:0 0 30px var(--c1),0 0 60px rgba(166,77,255,.5);transform:translateY(-3px) scale(1.04)}
+.btn:hover::before{opacity:1;animation:flow 3s linear infinite}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 3.5s infinite}
+@keyframes shine{to{left:160%}}
+.btn.alt{border-color:var(--c3);background:rgba(166,77,255,.08)}
+#robot{width:100%;height:min(62vh,500px);cursor:grab;touch-action:pan-y;display:block}.rw{position:relative}.bub{position:absolute;top:4%;left:50%;transform:translate(-50%,10px);padding:9px 18px;border-radius:16px;background:var(--glass);border:1px solid var(--c1);backdrop-filter:blur(12px);font-size:.9rem;white-space:nowrap;opacity:0;transition:.4s;box-shadow:0 0 20px rgba(0,229,255,.3);pointer-events:none}.bub.on{opacity:1;transform:translate(-50%,0)}.ctl{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px}.ctl button{cursor:none;font-family:'Orbitron';font-size:.66rem;letter-spacing:.1em;padding:10px 16px;border-radius:30px;border:1px solid var(--bd);background:var(--glass);color:var(--tx);backdrop-filter:blur(10px);transition:.3s}.ctl button:hover{border-color:var(--c1);box-shadow:0 0 20px var(--c1);transform:translateY(-3px)}.ctl button:active{transform:scale(.92)}
+.scroll{position:absolute;bottom:26px;left:50%;font-size:.7rem;letter-spacing:.4em;color:var(--mu);font-family:'Orbitron'}
+@media(max-width:860px){#hero{grid-template-columns:1fr;text-align:center;padding-top:100px}.btns{justify-content:center}#robot{height:300px}.rw{order:-1}.scroll{display:none}}
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.about .glass{padding:34px}
+.about p{font-family:'Space Grotesk',sans-serif;font-size:1.08rem;line-height:1.85;margin-bottom:18px;color:var(--mu)}.about p:first-child{font-size:1.3rem;font-weight:500;color:var(--tx)}.about p b{color:var(--c1);font-weight:700;text-shadow:0 0 14px rgba(0,229,255,.45)}
+.stats{display:grid;gap:16px;align-content:start}
+.stat{padding:22px;text-align:center}.stat .orb{font-size:2rem;font-weight:900}
+.stat small{color:var(--mu);letter-spacing:.2em;text-transform:uppercase;font-size:.72rem}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+/* skills */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.skill{padding:26px;overflow:hidden;transform-style:preserve-3d}
+.skill .ic{font-size:1.9rem;margin-bottom:12px;filter:drop-shadow(0 0 10px var(--c1));display:inline-block;animation:bob 4s ease-in-out infinite}
+.skill h3{font-size:1rem;letter-spacing:.1em;margin-bottom:14px}
+.bar{height:6px;border-radius:6px;background:rgba(120,150,255,.18);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:6px;background:var(--g);background-size:300%;animation:flow 4s linear infinite;box-shadow:0 0 14px var(--c1);transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.pct{float:right;font-family:'Orbitron';font-size:.7rem;color:var(--c1)}
+@keyframes bob{50%{transform:translateY(-8px)}}
+/* projects */
+.proj{overflow:hidden;display:flex;flex-direction:column;transform-style:preserve-3d;will-change:transform}
+.pimg{height:180px;position:relative;overflow:hidden;background:var(--g);background-size:300% 300%;animation:flow 8s linear infinite;display:grid;place-items:center}
+.pimg::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(2,3,10,.2),rgba(2,3,10,.85)),repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 30px),repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 30px)}
+.pimg svg{position:relative;width:90px;height:90px;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px var(--c1));transition:transform .6s}
+.proj:hover .pimg svg{transform:scale(1.25) rotate(-6deg)}
+.pb{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pb h3{font-size:1.05rem}.pb p{color:var(--mu);font-size:.98rem;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font-size:.72rem;padding:4px 12px;border-radius:20px;border:1px solid var(--bd);color:var(--c1);letter-spacing:.08em;background:rgba(0,229,255,.06)}
+.grid.p{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+/* hobbies */
+.hob{display:flex;flex-wrap:wrap;gap:18px;justify-content:center}
+.hob div{padding:22px 34px;font-family:'Orbitron';font-size:.85rem;letter-spacing:.14em;animation:bob 5s ease-in-out infinite}
+.hob div:nth-child(2n){animation-delay:-1.5s}.hob div:nth-child(3n){animation-delay:-3s}
+.vision{text-align:center;padding:70px 6vw}
+.vision q{display:block;font-family:'Orbitron';font-size:clamp(1.2rem,3vw,2.2rem);font-weight:700;line-height:1.5;quotes:none}
+#contact{text-align:center}
+.cbox{padding:60px 5vw}
+footer{text-align:center;padding:40px;color:var(--mu);font-size:.8rem;letter-spacing:.3em;font-family:'Orbitron'}
 </style>
 </head>
-
 <body>
+<div id="loader"><div class="core"></div><div class="lt" id="lt">INITIALIZING 0%</div><div class="lbar"><i id="lb"></i></div></div>
+<div id="wipe"></div>
+<div class="cur" id="cur"></div><div class="ring" id="ring"></div>
+<canvas id="bg"></canvas>
 
 <header>
-  <div class="logo">Hardik ✏️</div>
-
-  <button class="menu" onclick="toggleMenu()">☰</button>
-
-  <nav id="nav">
-    <a href="#home" onclick="closeMenu()">Home</a>
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#skills" onclick="closeMenu()">Skills</a>
-    <a href="#projects" onclick="closeMenu()">Projects</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a class="logo" href="#hero" data-t>HARDIK.RAVAL</a>
+  <nav>
+    <a href="#about" data-t>About</a><a href="#skills" data-t>Skills</a><a href="#projects" data-t>Projects</a><a href="#vision" data-t>Vision</a><a href="#contact" data-t>Contact</a>
+    <button id="theme" aria-label="Toggle theme">☾</button>
   </nav>
 </header>
 
-<!-- HOME -->
-
-<section class="hero" id="home">
-  <div class="doodle">✳️</div>
-
-  <div class="tag">MY CREATIVE WORLD ✏️</div>
-
-  <h1>Hello, I'm<br><span>Hardik Raval.</span></h1>
-
-  <p>
-    A curious student, creative thinker and technology lover.
-    I enjoy coding, building robots, experimenting with electronics
-    and turning my imagination into reality.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="#about" class="btn">Discover Me →</a>
-    <a href="#projects" class="btn">My Projects ↗</a>
+<main>
+<section id="hero">
+  <div>
+    <div class="sub">STUDENT • BUILDER • TECHNOLOGY EXPLORER</div>
+    <h1 id="h1" class="grad-wrap"></h1>
+    <div class="tagline grad">SMALL STEPS. BIG DREAMS.</div>
+    <div class="btns"><a class="btn" href="#projects" data-t>View Projects</a><a class="btn alt" href="#contact" data-t>Get in Touch</a></div>
   </div>
+  <div class="rw"><canvas id="robot"></canvas><div id="bub" class="bub"></div><div class="ctl"><button data-a="wave">👋 WAVE</button><button data-a="jump">⬆ JUMP</button><button data-a="dance">💃 DANCE</button><button data-a="spin">🌀 SPIN</button><button data-a="mood">🎨 COLOR</button></div></div>
+  <div class="scroll">SCROLL ↓</div>
 </section>
 
-<!-- ABOUT -->
-
-<section id="about" class="reveal">
-  <h2 class="heading">01. About Me ✏️</h2>
-
-  <div class="about-box">
-    <p>
-      Hello! My name is <b>Hardik Raval</b>. I am a student,
-      and I love learning new things, exploring creative ideas,
-      and discovering how the world works.
-    </p>
-
-    <p>
-      I am interested in <b>coding, Arduino, electronics,
-      robotics, and creative projects.</b> I enjoy making new
-      things, experimenting with different ideas, and learning
-      how technology works.
-    </p>
-
-    <p>
-      I enjoy drawing, creating new things, playing games,
-      and participating in activities that are creative and fun.
-      I love using my imagination to design interesting projects.
-    </p>
-
-    <p>
-      My studies are going very well, and I always try to learn
-      something new. I also enjoy playing sports, especially
-      football and cricket.
-    </p>
-
-    <p>
-      Throughout my learning journey, I have made mistakes,
-      faced challenges, and discovered new ways to solve problems.
-      Every challenge has helped me improve my skills.
-    </p>
-
-    <p>
-      My goal is to keep exploring, creating, experimenting,
-      and developing useful things with technology.
-    </p>
-  </div>
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills" class="reveal">
-  <h2 class="heading">02. My Interests & Skills 🖍️</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <div class="emoji">💻</div>
-      <h3>Coding</h3>
-      <p>Exploring programming and learning how websites work.</p>
+<section id="about">
+  <div class="tag rv">// 01 — About</div>
+  <h2 class="rv">Who is <span class="grad">Hardik?</span></h2>
+  <div class="about">
+    <div class="glass rv">
+      <p>I’m <b>Hardik Raval</b>, a student who is always curious and always learning. <b>Coding, Arduino, robotics and electronics</b> fascinate me, and I love turning creative ideas into real projects.</p>
+      <p>I enjoy experimenting with new ideas, building things from scratch, drawing, playing games and exploring the latest technology. Every project is a chance to try something I’ve never done before.</p>
+      <p>I believe <b>mistakes are part of learning</b>. Every challenge teaches me something new and helps me become a little better than I was yesterday.</p>
     </div>
-
-    <div class="card">
-      <div class="emoji">🤖</div>
-      <h3>Robotics</h3>
-      <p>Building robots and discovering how machines work.</p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">⚡</div>
-      <h3>Arduino</h3>
-      <p>Experimenting with sensors, motors and electronics.</p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🎨</div>
-      <h3>Creativity</h3>
-      <p>Drawing, designing and bringing new ideas to life.</p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🧠</div>
-      <h3>Problem Solving</h3>
-      <p>Finding creative solutions to interesting challenges.</p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🧊</div>
-      <h3>3D Designing</h3>
-      <p>Creating digital models and exploring 3D design.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects" class="reveal">
-  <h2 class="heading">03. My Projects 🚀</h2>
-
-  <div class="grid">
-
-    <div class="project">
-      <div class="number">01</div>
-      <div class="emoji">🚗</div>
-      <h3>Obstacle Avoiding Robot</h3>
-      <p>A robot car project that uses sensors to detect obstacles and change direction.</p>
-    </div>
-
-    <div class="project">
-      <div class="number">02</div>
-      <div class="emoji">💡</div>
-      <h3>Smart Street Light</h3>
-      <p>An Arduino-based project that uses an LDR sensor to control street lighting.</p>
-    </div>
-
-    <div class="project">
-      <div class="number">03</div>
-      <div class="emoji">🌡️</div>
-      <h3>Smart Information Station</h3>
-      <p>A sensor-based project that displays environmental information and alerts.</p>
-    </div>
-
-    <div class="project">
-      <div class="number">04</div>
-      <div class="emoji">🖥️</div>
-      <h3>3D Designs</h3>
-      <p>Creating useful and creative 3D models using design tools.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- JOURNEY -->
-
-<section class="reveal">
-  <h2 class="heading">04. My Learning Journey 🌟</h2>
-
-  <div class="journey">
-    <p>
-      Learning is a journey full of experiments, mistakes,
-      discoveries and new ideas.
-    </p>
-
-    <p>
-      Sometimes things are difficult, but I keep trying.
-      Every project teaches me something new and helps me
-      become better.
-    </p>
-
-    <p>
-      I believe that curiosity and creativity can turn
-      simple ideas into amazing inventions!
-    </p>
-  </div>
-</section>
-
-<!-- HOBBIES -->
-
-<section class="reveal">
-  <h2 class="heading">05. Things I Love ❤️</h2>
-
-  <div class="grid">
-    <div class="card">
-      <div class="emoji">⚽</div>
-      <h3>Football</h3>
-      <p>Playing football and enjoying teamwork.</p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🏏</div>
-      <h3>Cricket</h3>
-      <p>Enjoying cricket, practice and fun.</p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🎮</div>
-      <h3>Gaming</h3>
-      <p>Playing games and exploring new worlds.</p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">✏️</div>
-      <h3>Drawing</h3>
-      <p>Expressing ideas through art and creativity.</p>
+    <div class="stats">
+      <div class="glass stat rv"><div class="orb grad" data-n="5">0</div><small>Projects Built</small></div>
+      <div class="glass stat rv"><div class="orb grad" data-n="7">0</div><small>Core Skills</small></div>
+      <div class="glass stat rv"><div class="orb grad">∞</div><small>Curiosity</small></div>
     </div>
   </div>
 </section>
 
-<!-- QUOTE -->
+<section id="skills">
+  <div class="tag rv">// 02 — Skills</div>
+  <h2 class="rv">Power <span class="grad">Modules</span></h2>
+  <div class="grid" id="sk"></div>
+</section>
 
-<section class="reveal">
-  <div class="quote">
-    <h2>SMALL STEPS,<br>BIG DREAMS!</h2>
-    <p>Think creatively. Learn continuously. Build fearlessly.</p>
-    <p>— Hardik Raval ✍️</p>
+<section id="projects">
+  <div class="tag rv">// 03 — Projects</div>
+  <h2 class="rv">Things I’ve <span class="grad">Built</span></h2>
+  <div class="grid p" id="pj"></div>
+</section>
+
+<section id="hobbies">
+  <div class="tag rv">// 04 — Hobbies</div>
+  <h2 class="rv">Beyond the <span class="grad">Circuit Board</span></h2>
+  <div class="hob rv">
+    <div class="glass">⚽ FOOTBALL</div><div class="glass">🏏 CRICKET</div><div class="glass">🎮 GAMING</div><div class="glass">✏️ DRAWING</div><div class="glass">🚀 TECH EXPLORATION</div>
   </div>
 </section>
 
-<!-- CONTACT -->
-
-<section id="contact" class="reveal">
-  <h2 class="heading">06. Contact Me 📌</h2>
-
-  <div class="contact-box">
-    <h2 style="font-family:'Permanent Marker';font-size:30px">
-      Let's Create Something!
-    </h2>
-
-    <p style="font-size:19px;margin:20px 0">
-      Have an interesting project idea? Let's explore creativity
-      and technology together!
-    </p>
-
-    <a href="mailto:YOUR_EMAIL_HERE" class="btn">
-      Send Me an Email ↗
-    </a>
+<section id="vision">
+  <div class="glass vision rv">
+    <div class="tag">// 05 — My Vision</div>
+    <q class="grad">“To turn creative ideas into real-world inventions and build technology that makes a difference.”</q>
   </div>
 </section>
 
-<footer>
-  Made with ♥ and lots of creativity ✏️
-  <br><br>
-  © 2026 Hardik Raval | All Rights Reserved
-</footer>
+<section id="contact">
+  <div class="glass cbox rv">
+    <div class="tag">// 06 — Contact</div>
+    <h2>Let’s Build <span class="grad">Something</span></h2>
+    <p style="color:var(--mu);margin-bottom:30px">Got an idea, a project or just want to say hi? Let’s connect.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn" href="mailto:hardik@example.com">✉ Email</a>
+      <a class="btn alt" href="#" >⌥ GitHub</a>
+      <a class="btn" href="#">in LinkedIn</a>
+      <a class="btn alt" href="#">◎ Instagram</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>© 2026 HARDIK RAVAL — SMALL STEPS. BIG DREAMS.</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-function toggleMenu() {
-  document.getElementById("nav").classList.toggle("open");
-}
-
-function closeMenu() {
-  document.getElementById("nav").classList.remove("open");
-}
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
+const $=s=>document.querySelector(s);
+const root=document.documentElement;
+/* hero title letter reveal */
+(function(){
+  const h=$('#h1');let i=0;
+  [["HELLO,",""],["I’M",""],["HARDIK","grad"],["RAVAL","grad"]].forEach(([w,c])=>{
+    const s=document.createElement('span');s.style.cssText='display:inline-block;margin-right:.3em';if(c)s.className=c;
+    [...w].forEach(l=>{const e=document.createElement('span');e.className='ch';e.textContent=l;e.style.animationDelay=(2.2+i++*.05)+'s';s.appendChild(e)});
+    h.appendChild(s);
   });
-}, { threshold: 0.12 });
+})();
+/* loader */
+(function(){let p=0;const t=setInterval(()=>{p=Math.min(100,p+Math.random()*9+3);$('#lb').style.width=p+'%';$('#lt').textContent='INITIALIZING '+Math.floor(p)+'%';
+ if(p>=100){clearInterval(t);setTimeout(()=>$('#loader').classList.add('done'),300)}},90)})();
+/* data */
+const skills=[["Coding","</>",85],["Arduino","⚡",90],["Robotics","🤖",80],["Electronics","🔌",82],["3D Designing","🧊",75],["Creative Thinking","💡",92],["Problem Solving","🧩",88]];
+$('#sk').innerHTML=skills.map(s=>`<div class="glass skill rv"><div class="ic">${s[1]}</div><h3>${s[0].toUpperCase()}<span class="pct">${s[2]}%</span></h3><div class="bar"><i data-w="${s[2]}"></i></div></div>`).join('');
+const ic={
+ car:'<rect x="14" y="40" width="68" height="24" rx="6"/><circle cx="30" cy="68" r="8"/><circle cx="66" cy="68" r="8"/><path d="M70 30l12-8M70 22l12 8M76 14v8"/>',
+ lamp:'<path d="M48 10v12M20 56h56M30 56c0-18 8-26 18-26s18 8 18 26M48 56v26M36 82h24"/><path d="M18 26l8 6M78 26l-8 6"/>',
+ info:'<rect x="16" y="14" width="64" height="48" rx="6"/><path d="M48 62v20M32 82h32"/><path d="M48 28v4M48 38v14"/>',
+ clean:'<rect x="16" y="46" width="64" height="22" rx="8"/><circle cx="30" cy="72" r="6"/><circle cx="66" cy="72" r="6"/><path d="M26 46V30h44v16M38 38h20"/>',
+ cad:'<path d="M48 12l32 18v36L48 84 16 66V30z"/><path d="M48 48l32-18M48 48L16 30M48 48v36"/>'};
+const projs=[
+["Obstacle Avoiding Robot","A self-navigating robot that senses obstacles with ultrasonic sensors and steers around them in real time.",["Arduino","Ultrasonic","C++","Motors"],"car"],
+["Smart Street Light","An energy-saving street light that switches on automatically in the dark and dims when nobody is around.",["Arduino","LDR Sensor","LEDs","IoT"],"lamp"],
+["Smart Information Station","An interactive display station that shows useful live information at the press of a button.",["Arduino","LCD Display","Sensors","Coding"],"info"],
+["Table Cleaner Robot","A little helper robot designed to roam a tabletop and sweep away dust and crumbs on its own.",["Robotics","Motors","Electronics","Design"],"clean"],
+["3D CAD Designs","Creative 3D models and mechanical designs, from robot parts to futuristic gadgets.",["3D CAD","Modeling","Printing","Creativity"],"cad"]];
+$('#pj').innerHTML=projs.map(p=>`<article class="glass proj rv"><div class="pimg"><svg viewBox="0 0 96 96">${ic[p[3]]}</svg></div><div class="pb"><h3>${p[0]}</h3><p>${p[1]}</p><div class="tags">${p[2].map(t=>`<span>${t}</span>`).join('')}</div></div></article>`).join('');
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+  setTimeout(()=>e.target.classList.add('in'),(e.target.dataset.d||0));
+  e.target.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.w+'%');
+  e.target.querySelectorAll('[data-n]').forEach(n=>{let c=0,t=+n.dataset.n;const iv=setInterval(()=>{n.textContent=++c;if(c>=t)clearInterval(iv)},180)});
+  io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((e,i)=>{e.dataset.d=(i%4)*90;io.observe(e)});
+/* cursor + spotlight */
+let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;$('#cur').style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;
+ root.style.setProperty('--mx',mx+'px');root.style.setProperty('--my',my+'px')});
+(function loop(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;$('#ring').style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+document.addEventListener('pointerover',e=>{$('#ring').classList.toggle('big',!!e.target.closest('a,button,.glass'))});
+/* tilt */
+document.addEventListener('pointermove',e=>{const c=e.target.closest('.proj,.skill');
+ document.querySelectorAll('.proj,.skill').forEach(x=>{if(x!==c)x.style.transform=''});
+ if(!c)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ c.style.transform=`perspective(800px) rotateY(${x*14}deg) rotateX(${-y*14}deg) translateZ(10px)`});
+/* page transitions */
+document.querySelectorAll('[data-t]').forEach(a=>a.addEventListener('click',e=>{
+ e.preventDefault();const w=$('#wipe');w.classList.remove('go');void w.offsetWidth;w.classList.add('go');
+ setTimeout(()=>{document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'instant'})},450)}));
+/* theme */
+const tb=$('#theme');
+function setTheme(t){root.dataset.theme=t;tb.textContent=t==='light'?'☀':'☾';try{localStorage.setItem('th',t)}catch(e){}
+ if(window.applyTheme)applyTheme()}
+try{const s=localStorage.getItem('th');if(s)root.dataset.theme=s;tb.textContent=s==='light'?'☀':'☾'}catch(e){}
+tb.onclick=()=>setTheme(root.dataset.theme==='light'?'dark':'light');
 
-document.querySelectorAll(".reveal").forEach(el => {
-  observer.observe(el);
-});
+/* THREE: background */
+(function(){
+ const cv=$('#bg'),r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+ r.setPixelRatio(Math.min(devicePixelRatio,2));
+ const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,1,.1,200);cam.position.z=30;
+ const n=1400,pos=new Float32Array(n*3);for(let i=0;i<n*3;i++)pos[i]=(Math.random()-.5)*120;
+ const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+ const pm=new THREE.PointsMaterial({size:.22,color:0x00e5ff,transparent:true,opacity:.8});
+ const pts=new THREE.Points(pg,pm);sc.add(pts);
+ const geos=[new THREE.IcosahedronGeometry(2),new THREE.OctahedronGeometry(2),new THREE.TorusGeometry(1.8,.4,8,24),new THREE.BoxGeometry(2.4,2.4,2.4),new THREE.TetrahedronGeometry(2.2)];
+ const fl=[],cols=[0x00e5ff,0x3b6bff,0xa64dff];
+ for(let i=0;i<14;i++){const m=new THREE.Mesh(geos[i%5],new THREE.MeshBasicMaterial({color:cols[i%3],wireframe:true,transparent:true,opacity:.55}));
+  m.position.set((Math.random()-.5)*60,(Math.random()-.5)*50,-5-Math.random()*25);m.userData={s:Math.random()*.01+.003,p:Math.random()*6,y:m.position.y};
+  m.scale.setScalar(.6+Math.random()*1.4);sc.add(m);fl.push(m)}
+ let tx=0,ty=0,sy=0;
+ addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*6;ty=(e.clientY/innerHeight-.5)*4});
+ addEventListener('scroll',()=>sy=scrollY);
+ function rs(){r.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+ window.applyTheme=function(){const l=root.dataset.theme==='light';pm.color.setHex(l?0x2d4fe0:0x00e5ff);pm.opacity=l?.6:.8;fl.forEach((m,i)=>m.material.color.setHex(l?[0x0891b2,0x2d4fe0,0x7c2de0][i%3]:cols[i%3]))};applyTheme();
+ let t=0;(function a(){t+=1;pts.rotation.y=t*.0006+sy*.0002;pts.rotation.x=sy*.0001;
+  cam.position.x+=(tx-cam.position.x)*.04;cam.position.y+=(-ty-cam.position.y-sy*.004)*.04;cam.lookAt(0,-sy*.004,0);
+  fl.forEach(m=>{m.rotation.x+=m.userData.s;m.rotation.y+=m.userData.s*1.3;m.position.y=m.userData.y+Math.sin(t*.01+m.userData.p)*2});
+  r.render(sc,cam);requestAnimationFrame(a)})();
+})();
+
+/* THREE: robot */
+(function(){
+ const cv=$('#robot'),r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+ r.setPixelRatio(Math.min(devicePixelRatio,2));
+ const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(40,1,.1,100);cam.position.set(0,.3,9);
+ sc.add(new THREE.AmbientLight(0x8899ff,.6));
+ const l1=new THREE.PointLight(0x00e5ff,2.2,40);l1.position.set(5,4,6);sc.add(l1);
+ const l2=new THREE.PointLight(0xa64dff,2.2,40);l2.position.set(-5,-2,5);sc.add(l2);
+ const bot=new THREE.Group();sc.add(bot);
+ const mat=new THREE.MeshStandardMaterial({color:0x151b3a,metalness:.9,roughness:.25});
+ const glow=new THREE.MeshBasicMaterial({color:0x00e5ff});
+ const edge=c=>new THREE.LineBasicMaterial({color:c});
+ function box(w,h,d,x,y,z,m=mat,par=bot){const g=new THREE.BoxGeometry(w,h,d),o=new THREE.Mesh(g,m);o.position.set(x,y,z);
+  if(m===mat){const e=new THREE.LineSegments(new THREE.EdgesGeometry(g),edge(0x3b6bff));o.add(e)}par.add(o);return o}
+ const head=new THREE.Group();head.position.y=1.5;bot.add(head);
+ box(2,1.5,1.7,0,0,0,mat,head);
+ box(1.55,.55,.1,0,.1,.88,new THREE.MeshBasicMaterial({color:0x02030a}),head);
+ const eL=box(.32,.2,.06,-.4,.1,.95,glow,head),eR=box(.32,.2,.06,.4,.1,.95,glow,head);
+ box(.2,.6,.2,-1.1,0,0,mat,head);box(.2,.6,.2,1.1,0,0,mat,head);
+ box(.08,.5,.08,0,1,0,mat,head);
+ const ball=new THREE.Mesh(new THREE.SphereGeometry(.17,16,16),new THREE.MeshBasicMaterial({color:0xa64dff}));ball.position.y1=1.3;ball.position.y=1.35;head.add(ball);
+ box(1.6,1.6,1.1,0,-.3,0);
+ box(.8,.5,.06,0,-.2,.58,new THREE.MeshBasicMaterial({color:0x3b6bff}));
+ const core=new THREE.Mesh(new THREE.SphereGeometry(.18,16,16),glow);core.position.set(0,-.2,.64);bot.add(core);
+ const aL=box(.4,1.3,.4,-1.2,-.2,0),aR=box(.4,1.3,.4,1.2,-.2,0);
+ box(.5,.7,.5,-.4,-1.5,0);box(.5,.7,.5,.4,-1.5,0);
+ const rings=[];[2.6,3.1].forEach((rad,i)=>{const t=new THREE.Mesh(new THREE.TorusGeometry(rad,.015,8,100),new THREE.MeshBasicMaterial({color:i?0xa64dff:0x00e5ff}));t.rotation.x=1.2+i*.5;sc.add(t);rings.push(t)});
+ const orb=[];for(let i=0;i<6;i++){const m=new THREE.Mesh(new THREE.OctahedronGeometry(.18),new THREE.MeshBasicMaterial({color:i%2?0xa64dff:0x00e5ff,wireframe:true}));sc.add(m);orb.push(m)}
+ let tx=0,ty=0,drag=0,ry=0,rx=0,vy=0,px=0,py=0,mv=0,act='',t0=0,ci=0;
+ const bub=$('#bub'),say=s=>{bub.textContent=s;bub.classList.add('on');clearTimeout(say.k);say.k=setTimeout(()=>bub.classList.remove('on'),2200)};
+ const lines=['Beep boop! Hi there 👋','Systems online ⚡','Hehe, that tickles!','Let’s build something!','Small steps. Big dreams.','Whoa, careful! 😄'];
+ const moods=[[0x00e5ff,0xa64dff],[0xff3df0,0x7a4dff],[0x39ff88,0x00e5ff],[0xffa63d,0xff3d5a]];
+ const go=a=>{if(a==='spin'){vy=.5;say('Wheeee! 🌀');return}if(a==='mood'){const m=moods[++ci%4];glow.color.setHex(m[0]);l1.color.setHex(m[0]);l2.color.setHex(m[1]);rings[0].material.color.setHex(m[0]);rings[1].material.color.setHex(m[1]);say('New color unlocked 🎨');return}act=a;t0=t;say(a==='wave'?'Hello, Hardik! 👋':a==='jump'?'Boing! ⬆':'Dance mode ON 💃')};
+ document.querySelectorAll('.ctl button').forEach(b=>b.onclick=()=>go(b.dataset.a));
+ addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*1.2;ty=(e.clientY/innerHeight-.5)*.6;if(drag){const d=e.clientX-px;ry+=d*.012;vy=d*.004;mv+=Math.abs(d);rx=Math.max(-.5,Math.min(.5,rx+(e.clientY-py)*.006))}px=e.clientX;py=e.clientY});
+ cv.addEventListener('pointerdown',e=>{drag=1;mv=0;px=e.clientX;py=e.clientY;vy=0;try{cv.setPointerCapture(e.pointerId)}catch(x){}});
+ addEventListener('pointerup',()=>{if(drag&&mv<6){go('jump');say(lines[Math.floor(Math.random()*lines.length)])}drag=0});
+ setTimeout(()=>say('Beep boop! Drag or click me 🤖'),3200);
+ function rs(){const w=cv.clientWidth,h=cv.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}rs();addEventListener('resize',rs);
+ let t=0;(function a(){t+=.016;
+  const dt=t-t0;let jy=0,wv=0,dn=0;if(act==='jump'){jy=Math.abs(Math.sin(dt*Math.PI*1.6))*1.6*Math.max(0,1-dt/1.3);if(dt>1.3)act=''}else if(act==='wave'){wv=1;if(dt>2.8)act=''}else if(act==='dance'){dn=1;if(dt>5)act=''}
+  bot.position.y=Math.sin(t*1.5)*.25+jy;if(!drag){ry+=vy;vy*=.96;rx*=.97;if(Math.abs(vy)<.01)ry+=(Math.round(ry/6.2832)*6.2832-ry)*.03}
+  bot.rotation.y+=((ry+tx*.5)-bot.rotation.y)*.15;bot.rotation.x+=((rx+ty)-bot.rotation.x)*.08;bot.rotation.z=dn?Math.sin(t*8)*.15:0;
+  head.rotation.y=dn?Math.sin(t*6)*.5:Math.sin(t)*.2;head.rotation.x=dn?Math.abs(Math.sin(t*6))*.25:0;aL.rotation.z=dn?Math.sin(t*8)*.9:Math.sin(t*2)*.12;aR.rotation.z=wv?2.4+Math.sin(t*14)*.35:dn?-Math.sin(t*8)*.9:-Math.sin(t*2)*.12;bot.position.x=dn?Math.sin(t*4)*.4:0;
+  eL.scale.y=eR.scale.y=Math.sin(t*1.3)>.97?.1:1;core.scale.setScalar(1+Math.sin(t*5)*.25);
+  rings.forEach((g,i)=>{g.rotation.z+=.004*(i?-1:1);g.rotation.y+=.003});
+  orb.forEach((m,i)=>{const an=t*.8+i*1.05;m.position.set(Math.cos(an)*2.8,Math.sin(an*1.3)*1.6,Math.sin(an)*2.8);m.rotation.x+=.03;m.rotation.y+=.03});
+  r.render(sc,cam);requestAnimationFrame(a)})();
+})();
 </script>
-
 </body>
 </html>
